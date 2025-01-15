@@ -73,7 +73,7 @@ export const AdminHistoryEditComponent = ({ updateHandler, }) => {
                         <label>
                             Date Of Transaction
                         </label>
-                        <input value={isData.dateOfTransfer} onChange={(e) => handleChangeHandler(e, 'date')} type='date' />
+                        <input value={isData.date} onChange={(e) => handleChangeHandler(e, 'date')} type='date' />
                     </div>
 
                     <div className={styles.inputCards}>

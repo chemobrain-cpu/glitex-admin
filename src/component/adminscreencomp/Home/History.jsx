@@ -118,7 +118,7 @@ export const AdminHistoryComponent = ({ status }) => {
                         
                         {historyList.map(data => <tr key={data.__id} onClick={() => { navigateHandler(data._id) }}>
                             
-                            <td>{data.date.substring(0, 10)}</td>
+                            <td>{data.date}</td>
                             <td>${data.amount}</td>
                             <td>{data.status}</td>
                             <td>{data.transactionType}</td>
