@@ -103,26 +103,142 @@ export const AdminHistoryComponent = ({ status }) => {
             </div>
 
             <div className={styles.tableContainer} >
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>Transaction ID</td>
-                            <td>Amount</td>
-                            <td>Status</td>
-                            <td>Type Of Transaction</td>
-                        </tr>
-                        {historyList.map(data => (
-                            <tr key={data.__id} onClick={() => { navigateHandler(data._id) }}>
-                                <td>{data.transaction_number}</td>
-                                <td>${data.amount}</td>
-                                <td>{(data.status === 'true' || data.status === true) ? 'Approved' : 'Pending'}</td>
-                                <td>{data.transactionType}</td>
-                            </tr>
+            <table
+  style={{
+    borderCollapse: 'collapse',
+    margin: '20px 0',
+    width: '100%',
+    backgroundColor: 'rgba(255, 255, 255, 0.9)', // White background with transparency
+    borderRadius: '10px',
+    boxShadow: '0 12px 24px rgba(0, 0, 0, 0.1)', // Sweet shadow for a modern effect
+  }}
+>
+  <thead>
+    <tr
+      style={{
+        textAlign: 'left',
+        fontWeight: 'bold',
+        fontSize: '16px',
+        color: '#444',
+        backgroundColor: '#fafafa',
+        borderRadius: '10px 10px 0 0', // Rounded top corners
+      }}
+    >
+      <th
+        style={{
+          padding: '16px 20px',
+          width: '25%',
+          textAlign: 'left',
+          backgroundColor: '#f9f9f9',
+          borderTopLeftRadius: '10px',
+        }}
+      >
+        Transaction ID
+      </th>
+      <th
+        style={{
+          padding: '16px 20px',
+          width: '25%',
+          textAlign: 'left',
+          backgroundColor: '#f9f9f9',
+        }}
+      >
+        Amount
+      </th>
+      <th
+        style={{
+          padding: '16px 20px',
+          width: '25%',
+          textAlign: 'left',
+          backgroundColor: '#f9f9f9',
+        }}
+      >
+        Status
+      </th>
+      <th
+        style={{
+          padding: '16px 20px',
+          width: '25%',
+          textAlign: 'left',
+          backgroundColor: '#f9f9f9',
+          borderTopRightRadius: '10px',
+        }}
+      >
+        Type of Transaction
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    {historyList.map((data) => (
+      <tr
+        key={data.__id}
+        onClick={() => { navigateHandler(data._id) }}
+        style={{
+          borderBottom: '1px solid #ddd',
+          fontSize: '14px',
+          color: '#555',
+          backgroundColor: 'transparent',
+          transition: 'background-color 0.3s ease, box-shadow 0.3s ease', // Smooth transition for hover
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.backgroundColor = '#f9f9f9';
+          e.currentTarget.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.2)'; // Shadow effect on hover
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.backgroundColor = 'transparent';
+          e.currentTarget.style.boxShadow = 'none'; // Reset shadow when not hovered
+        }}
+      >
+        <td
+          style={{
+            padding: '16px 20px',
+            textOverflow: 'ellipsis',
+            overflow: 'hidden',
+            textAlign: 'left',
+            width: '25%',
+          }}
+        >
+          {data.transaction_number}
+        </td>
+        <td
+          style={{
+            padding: '16px 20px',
+            textOverflow: 'ellipsis',
+            overflow: 'hidden',
+            textAlign: 'left',
+            width: '25%',
+          }}
+        >
+          ${data.amount}
+        </td>
+        <td
+          style={{
+            padding: '16px 20px',
+            textOverflow: 'ellipsis',
+            overflow: 'hidden',
+            textAlign: 'left',
+            width: '25%',
+          }}
+        >
+          {(data.status === 'true' || data.status === true) ? 'Approved' : 'Pending'}
+        </td>
+        <td
+          style={{
+            padding: '16px 20px',
+            textOverflow: 'ellipsis',
+            overflow: 'hidden',
+            textAlign: 'left',
+            width: '25%',
+          }}
+        >
+          {data.transactionType}
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
 
 
-                        ))}
-                    </tbody>
-                </table>
             </div>
 
 

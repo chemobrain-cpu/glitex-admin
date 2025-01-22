@@ -107,56 +107,136 @@ export const AdminUserHistoryComponent = ({ status }) => {
                     <p>No registered users</p>
                 </div>}
 
-                {userList.length !== 0 && <table>
-                    <tbody>
-                        <tr>
-                            <td>
-                                Email
-                            </td>
-                            <td>
-                                First Name
-                            </td>
+                {userList.length !== 0 && <table
+  style={{
+    borderCollapse: 'collapse',
+    margin: '20px 0',
+    width: '100%',
+    backgroundColor: 'rgba(255, 255, 255, 0.9)', // White background with transparency
+    borderRadius: '10px',
+    boxShadow: '0 12px 24px rgba(0, 0, 0, 0.1)', // Sweet shadow for a modern effect
+  }}
+>
+  <tbody>
+    <tr
+      style={{
+        textAlign: 'left',
+        fontWeight: 'bold',
+        fontSize: '16px',
+        color: '#444',
+        backgroundColor: '#fafafa',
+        borderRadius: '10px 10px 0 0', // Rounded top corners
+      }}
+    >
+      <td
+        style={{
+          padding: '16px 20px',
+          textAlign: 'left',
+          backgroundColor: '#f9f9f9',
+          borderTopLeftRadius: '10px',
+        }}
+      >
+        Email
+      </td>
+      <td
+        style={{
+          padding: '16px 20px',
+          textAlign: 'left',
+          backgroundColor: '#f9f9f9',
+        }}
+      >
+        First Name
+      </td>
+      <td
+        style={{
+          padding: '16px 20px',
+          textAlign: 'left',
+          backgroundColor: '#f9f9f9',
+        }}
+      >
+        Phone Number
+      </td>
+      <td
+        style={{
+          padding: '16px 20px',
+          textAlign: 'left',
+          backgroundColor: '#f9f9f9',
+          borderTopRightRadius: '10px',
+        }}
+      >
+        Country
+      </td>
+    </tr>
 
-                            <td>
-                                Phone Number
-
-                            </td>
-
-
-                            <td>
-                                Country
-
-                            </td>
-
-                        </tr>
-
-
-
-
-                        {userList.map(data => <tr key={data.__id}  onClick={()=>depositHandler(data._id)}>
-                            <td>
-                                {data.email}
-                            </td>
-                            <td>
-                                {data.firstName}
-
-                            </td>
-
-                            <td>
-                                {data.phone}
-
-                            </td>
-
-                            <td>
-                                {data.nationality}
-
-                            </td>
-
-                        </tr>)}
-
-
-                    </tbody>
-                </table>}
+    {userList.map(data => (
+      <tr
+        key={data.__id}
+        onClick={() => depositHandler(data._id)}
+        style={{
+          borderBottom: '1px solid #ddd',
+          fontSize: '14px',
+          color: '#555',
+          backgroundColor: 'transparent',
+          transition: 'background-color 0.3s ease, box-shadow 0.3s ease', // Smooth transition for hover
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.backgroundColor = '#f9f9f9';
+          e.currentTarget.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.2)'; // Shadow effect on hover
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.backgroundColor = 'transparent';
+          e.currentTarget.style.boxShadow = 'none'; // Reset shadow when not hovered
+        }}
+      >
+        <td
+          style={{
+            padding: '16px 20px',
+            textOverflow: 'ellipsis',
+            overflow: 'hidden',
+            textAlign: 'left',
+            width: '25%',
+          }}
+        >
+          {data.email}
+        </td>
+        <td
+          style={{
+            padding: '16px 20px',
+            textOverflow: 'ellipsis',
+            overflow: 'hidden',
+            textAlign: 'left',
+            width: '25%',
+          }}
+        >
+          {data.firstName}
+        </td>
+        <td
+          style={{
+            padding: '16px 20px',
+            textOverflow: 'ellipsis',
+            overflow: 'hidden',
+            textAlign: 'left',
+            width: '25%',
+          }}
+        >
+          {data.phone}
+        </td>
+        <td
+          style={{
+            padding: '16px 20px',
+            textOverflow: 'ellipsis',
+            overflow: 'hidden',
+            textAlign: 'left',
+            width: '25%',
+          }}
+        >
+          {data.nationality}
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+}
 
 
 
