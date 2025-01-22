@@ -67,7 +67,7 @@ let retrievedAdminStoredToken = () => {
     adminExpiresIn: timeLeft
   }
 }
-//https://glitexfinance.net
+//http://localhost:9090
 
 
 export const checkIfAdminIsLoggedIn = () => {
@@ -93,7 +93,7 @@ export const checkIfAdminIsLoggedIn = () => {
       }
       
     
-      response = await fetch(`https://glitexfinance.net/adminbytoken`, {
+      response = await fetch(`http://localhost:9090/adminbytoken`, {
         method: "GET",
         headers:{
           "Content-Type": "application/json",
@@ -118,7 +118,7 @@ export const loginAdmin = (data) => {
   let dataObj = data
   return async (dispatch, getState) => {
     try {
-      let response = await fetch('https://glitexfinance.net/adminlogin', {
+      let response = await fetch('http://localhost:9090/adminlogin', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -177,7 +177,7 @@ export const signupAdmin = (data) => {
   let dataObj = data
   return async (dispatch, getState) => {
     try {
-      let response = await fetch(`https://glitexfinance.net/adminsignup`, {
+      let response = await fetch(`http://localhost:9090/adminsignup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -242,7 +242,7 @@ export const fetchUsers = ()=>{
       adminToken
     } = getState().userAuth
     try {
-      let response = await fetch('https://glitexfinance.net/users', {
+      let response = await fetch('http://localhost:9090/users', {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -304,7 +304,7 @@ export const deleteUser = (id)=>{
    
 
     try {
-      let response = await fetch(`https://glitexfinance.net/users/${id}`, {
+      let response = await fetch(`http://localhost:9090/users/${id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -356,7 +356,7 @@ export const updateUser = (data)=>{
     } = getState().userAuth
 
     try {
-      let response = await fetch(`https://glitexfinance.net/users`, {
+      let response = await fetch(`http://localhost:9090/users`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -413,7 +413,7 @@ export const fetchHistory = (user)=>{
     } = getState().userAuth
 
     try {
-      let response = await fetch(`https://glitexfinance.net/history/${user}`, {
+      let response = await fetch(`http://localhost:9090/history/${user}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -466,7 +466,7 @@ export const updateHistory = (data)=>{
     } = getState().userAuth
 
     try {
-      let response = await fetch(`https://glitexfinance.net/history/${data._id}`, {
+      let response = await fetch(`http://localhost:9090/history/${data._id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -522,7 +522,7 @@ export const fetchLoan = (user)=>{
     } = getState().userAuth
 
     try {
-      let response = await fetch(`https://glitexfinance.net/loan/${user}`, {
+      let response = await fetch(`http://localhost:9090/loan/${user}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -573,7 +573,7 @@ export const updateLoan = (data)=>{
     } = getState().userAuth
 
     try {
-      let response = await fetch(`https://glitexfinance.net/loan/${data._id}`, {
+      let response = await fetch(`http://localhost:9090/loan/${data._id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -626,7 +626,7 @@ export const fetchAccounts = (id)=>{
       adminToken
     } = getState().userAuth
     try {
-      let response = await fetch(`https://glitexfinance.net/admin-accounts/${id}`, {
+      let response = await fetch(`http://localhost:9090/admin-accounts/${id}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -687,7 +687,7 @@ export const deleteAccount = (id)=>{
       adminToken
     } = getState().userAuth
     try {
-      let response = await fetch(`https://glitexfinance.net/admin-accounts/${id}`, {
+      let response = await fetch(`http://localhost:9090/admin-accounts/${id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -738,7 +738,7 @@ export const updateAccount = (data)=>{
       adminToken
     } = getState().userAuth
     try {
-      let response = await fetch(`https://glitexfinance.net/admin-accounts`, {
+      let response = await fetch(`http://localhost:9090/admin-accounts`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -791,7 +791,7 @@ export const createAccount = (data,user)=>{
     } = getState().userAuth
 
     try {
-      let response = await fetch(`https://glitexfinance.net/admin-accounts/${user}`, {
+      let response = await fetch(`http://localhost:9090/admin-accounts/${user}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -849,7 +849,7 @@ export const fetchCard = (user)=>{
     } = getState().userAuth
 
     try {
-      let response = await fetch(`https://glitexfinance.net/card/${user}`, {
+      let response = await fetch(`http://localhost:9090/card/${user}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -894,7 +894,7 @@ export const fetchCard = (user)=>{
 }
 
 
-//https://glitexfinance.net/admin
+//http://localhost:9090/admin
 export const updateCard = (data)=>{
   return async (dispatch, getState) => {
     let {
@@ -902,7 +902,7 @@ export const updateCard = (data)=>{
     } = getState().userAuth
 
     try {
-      let response = await fetch(`https://glitexfinance.net/card/${data._id}`, {
+      let response = await fetch(`http://localhost:9090/card/${data._id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -957,7 +957,7 @@ export const updateAdmin = (data)=>{
     } = getState().userAuth
 
     try {
-      let response = await fetch(`https://glitexfinance.net/admin/${data._id}`, {
+      let response = await fetch(`http://localhost:9090/admin/${data._id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -1013,7 +1013,7 @@ export const credit = (data)=>{
     } = getState().userAuth
 
     try {
-      let response = await fetch(`https://glitexfinance.net/credit`, {
+      let response = await fetch(`http://localhost:9090/credit`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -1067,7 +1067,7 @@ export const debit = (data,user)=>{
     } = getState().userAuth
 
     try {
-      let response = await fetch(`https://glitexfinance.net/debit`, {
+      let response = await fetch(`http://localhost:9090/debit`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -1118,14 +1118,14 @@ export const debit = (data,user)=>{
 
 //fake https:///back-end-zf7t.onrender.com
 
-//https://glitexfinance.net/admin
+//http://localhost:9090/admin
 export const sendEmail = (data,id)=>{
   return async (dispatch, getState) => {
     let {
       adminToken
     } = getState().userAuth
     try {
-      let response = await fetch(`https://glitexfinance.net/sendemail`, {
+      let response = await fetch(`http://localhost:9090/sendemail`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -296,90 +296,29 @@ export const AdminUserEditComponent = ({ updateHandler, }) => {
                             />
                         </div>
 
+
+                         <div className={styles.inputCards}>
+                            <label>Otp Code</label>
+                            <input
+                                onChange={(e) => handleChangeHandler(e, 'otpCode')}
+                                value={isData.otpCode}
+                                type="number"
+                                readOnly
+                            />
+                        </div>
                         <div className={styles.inputCards}>
-                            <label>TAC Verified</label>
+                            <label>Otp Verified</label>
                             <select
-                                onChange={(e) => handleChangeHandler(e, 'tacVerified')}
-                                value={isData.tacVerified}
+                                onChange={(e) => handleChangeHandler(e, 'otpVerified')}
+                                value={isData.otpVerified}
                             >
                                 <option value={true}>True</option>
                                 <option value={false}>False</option>
                             </select>
                         </div>
 
-                        <div className={styles.inputCards}>
-                            <label>TAC Code</label>
-                            <input
-                                onChange={(e) => handleChangeHandler(e, 'tacCode')}
-                                value={isData.tacCode}
-                                type="number"
-                                readOnly
-                            />
-                        </div>
 
-                        <div className={styles.inputCards}>
-                            <label>NRC Verified</label>
-                            <select
-                                onChange={(e) => handleChangeHandler(e, 'nrcVerified')}
-                                value={isData.nrcVerified}
-                            >
-                                <option value={true}>True</option>
-                                <option value={false}>False</option>
-                            </select>
-                        </div>
-
-                        <div className={styles.inputCards}>
-                            <label>NRC Code</label>
-                            <input
-                                onChange={(e) => handleChangeHandler(e, 'nrcCode')}
-                                value={isData.nrcCode}
-                                type="number"
-                                readOnly
-                            />
-                        </div>
-
-                        <div className={styles.inputCards}>
-                            <label>IMF Verified</label>
-                            <select
-                                onChange={(e) => handleChangeHandler(e, 'imfVerified')}
-                                value={isData.imfVerified}
-                            >
-                                <option value={true}>True</option>
-                                <option value={false}>False</option>
-                            </select>
-                        </div>
-
-                        <div className={styles.inputCards}>
-                            <label>IMF Code</label>
-                            <input
-                                onChange={(e) => handleChangeHandler(e, 'imfCode')}
-                                value={isData.imfCode}
-                                type="number"
-                                readOnly
-                            />
-                        </div>
-
-                        <div className={styles.inputCards}>
-                            <label>COT Verified</label>
-                            <select
-                                onChange={(e) => handleChangeHandler(e, 'cotVerified')}
-                                value={isData.cotVerified}
-                            >
-                                <option value={true}>True</option>
-                                <option value={false}>False</option>
-                            </select>
-                        </div>
-
-                        <div className={styles.inputCards}>
-                            <label>COT Code</label>
-                            <input
-                                onChange={(e) => handleChangeHandler(e, 'cotCode')}
-                                value={isData.cotCode}
-                                type="number"
-                                readOnly
-                            />
-                        </div>
-
+                     
                         <div className={styles.inputCards}>
                             <label>Account Status</label>
                             <select
