@@ -103,62 +103,68 @@ export const AdminUsersComponent = ({ status }) => {
     }
 
 
-    return (<div className={styles.homeScreen} style={{ backgroundColor: color.background }}>
-        <div className={styles.timeline} style={{ backgroundColor: color.background, padding: '20px', borderRadius: '10px' }}>
-            <div className={styles.filter}>
-                <div className={styles.searchContainer} style={{ marginBottom: '20px' }}>
-                    <div className={styles.searchBar} style={{ display: 'flex', alignItems: 'center', border: '1px solid #ddd', padding: '5px', borderRadius: '5px' }}>
-                        <input
-                            className={styles.input}
-                            placeholder="search by email"
-                            onChange={searchHandler}
-                            style={{
-                                flex: 1,
-                                padding: '8px',
-                                border: 'none',
-                                borderRadius: '5px',
-                                fontSize: '16px',
-                            }}
-                        />
-                        <span className="material-icons" style={{ marginLeft: '10px', cursor: 'pointer' }}>search</span>
-                    </div>
+    return (<div className={styles.homeScreen} style={{ backgroundColor: color.background, padding: '20px', fontFamily: 'Arial, sans-serif' }}>
+
+    <div className={styles.timeline} style={{ backgroundColor: color.background, padding: '20px', borderRadius: '10px', boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)' }}>
+        
+        <div className={styles.filter}>
+            <div className={styles.searchContainer} style={{ marginBottom: '20px' }}>
+                <div className={styles.searchBar} style={{ display: 'flex', alignItems: 'center', border: '1px solid #ddd', padding: '5px', borderRadius: '5px' }}>
+                    <input
+                        className={styles.input}
+                        placeholder="Search by email"
+                        onChange={searchHandler}
+                        style={{
+                            flex: 1,
+                            padding: '8px',
+                            border: 'none',
+                            borderRadius: '5px',
+                            fontSize: '16px',
+                            outline: 'none',
+                            
+                        }}
+                       
+                    />
+                    <span className="material-icons" style={{ marginLeft: '10px', cursor: 'pointer', color: '#382b7d' }}>search</span>
                 </div>
             </div>
-            <div className={styles.tableContainer} style={{ overflowX: 'auto' }}>
-                {userList.length === 0 && (
-                    <div className={styles.emptyContainer} style={{ textAlign: 'center', padding: '20px' }}>
-                        <p>No registered users</p>
-                    </div>
-                )}
-                {userList.length !== 0 && (
-                    <table
+        </div>
+
+        <div className={styles.tableContainer} style={{ overflowX: 'auto' }}>
+            {userList.length === 0 && (
+                <div className={styles.emptyContainer} style={{ textAlign: 'center', padding: '20px' }}>
+                    <p style={{ color: '#888' }}>No registered users</p>
+                </div>
+            )}
+
+            {userList.length !== 0 && (
+                <table
                     style={{
                         borderCollapse: 'collapse',
                         margin: '20px 0',
                         boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
-                         // Ensures all columns have fixed width
                     }}
                 >
                     <thead>
-                       
-                    </thead>
-                    <tbody>
-                    <tr
+                        <tr
                             style={{
-                                backgroundColor: '#f4f4f4',
+                               
                                 textAlign: 'left',
                                 fontWeight: 'bold',
                                 fontSize: '16px',
                                 color: '#333',
+                                backgroundColor:'transparent'
                             }}
                         >
-                            <th style={{ padding: '12px 15px', wordWrap: 'break-word', width: '20%', textAlign:'left' }}>Email</th>
-                            <th style={{ padding: '12px 15px', wordWrap: 'break-word', width: '20%', textAlign:'left' }}>First Name</th>
-                            <th style={{ padding: '12px 15px', wordWrap: 'break-word', width: '20%', textAlign:'left' }}>Phone Number</th>
-                            <th style={{ padding: '12px 15px', wordWrap: 'break-word', width: '20%', textAlign:'left' }}>Country</th>
-                            <th style={{ padding: '12px 15px', wordWrap: 'break-word', width: '20%', textAlign:'left' }}>Delete</th>
-                            <th style={{ padding: '12px 15px', wordWrap: 'break-word', width: '20%', textAlign:'left' }}>Edit</th>
+                            <th style={{ padding: '12px 15px', width: '20%', textAlign: 'left' }}>Email</th>
+                            <th style={{ padding: '12px 15px', width: '20%', textAlign: 'left' }}>First Name</th>
+                            <th style={{ padding: '12px 15px', width: '20%', textAlign: 'left' }}>Phone Number</th>
+                            <th style={{ padding: '12px 15px', width: '20%', textAlign: 'left' }}>Country</th>
+                            <th style={{ padding: '12px 15px', width: '10%', textAlign: 'center' }}>Delete</th>
+                            <th style={{ padding: '12px 15px', width: '10%', textAlign: 'center' }}>Edit</th>
                         </tr>
+                    </thead>
+                    <tbody>
                         {userList.map((data) => (
                             <tr
                                 key={data.__id}
@@ -166,18 +172,20 @@ export const AdminUsersComponent = ({ status }) => {
                                     borderBottom: '1px solid #ddd',
                                     fontSize: '14px',
                                     color: '#555',
+                                    backgroundColor:'transparent',
+                                    display:'flex',
+                                    justifyContent:'space-between',
+                                    flex:1
                                 }}
-                                onMouseEnter={(e) => (e.target.style.backgroundColor = '#f9f9f9')}
-                                onMouseLeave={(e) => (e.target.style.backgroundColor = 'transparent')}
+                              
                             >
                                 <td
                                     style={{
                                         padding: '12px 15px',
-                                        wordWrap: 'break-word',
-                                        width: '20%',
-                                        overflow: 'hidden',
                                         textOverflow: 'ellipsis',
-                                        textAlign:'left'
+                                        overflow: 'hidden',
+                                        textAlign: 'left',
+                                        width: '20%'
                                     }}
                                 >
                                     {data.email}
@@ -185,11 +193,10 @@ export const AdminUsersComponent = ({ status }) => {
                                 <td
                                     style={{
                                         padding: '12px 15px',
-                                        wordWrap: 'break-word',
-                                        width: '20%',
-                                        overflow: 'hidden',
                                         textOverflow: 'ellipsis',
-                                        textAlign:'left'
+                                        overflow: 'hidden',
+                                        textAlign: 'left',
+                                        width: '20%'
                                     }}
                                 >
                                     {data.firstName}
@@ -197,11 +204,10 @@ export const AdminUsersComponent = ({ status }) => {
                                 <td
                                     style={{
                                         padding: '12px 15px',
-                                        wordWrap: 'break-word',
-                                        width: '20%',
-                                        overflow: 'hidden',
                                         textOverflow: 'ellipsis',
-                                        textAlign:'left'
+                                        overflow: 'hidden',
+                                        textAlign: 'left',
+                                        width: '20%'
                                     }}
                                 >
                                     {data.phone}
@@ -209,11 +215,10 @@ export const AdminUsersComponent = ({ status }) => {
                                 <td
                                     style={{
                                         padding: '12px 15px',
-                                        wordWrap: 'break-word',
-                                        width: '20%',
-                                        overflow: 'hidden',
                                         textOverflow: 'ellipsis',
-                                        textAlign:'left'
+                                        overflow: 'hidden',
+                                        textAlign: 'left',
+                                        width: '10%'
                                     }}
                                 >
                                     {data.nationality}
@@ -225,8 +230,7 @@ export const AdminUsersComponent = ({ status }) => {
                                         color: 'red',
                                         textAlign: 'center',
                                         padding: '12px 15px',
-                                        width: '20%',
-                                        textAlign:'left'
+                                        width: '10%'
                                     }}
                                 >
                                     <span className="material-icons">delete</span>
@@ -238,8 +242,7 @@ export const AdminUsersComponent = ({ status }) => {
                                         color: 'blue',
                                         textAlign: 'center',
                                         padding: '12px 15px',
-                                        width: '20%',
-                                        textAlign:'left'
+                                        width: '10%'
                                     }}
                                 >
                                     <span className="material-icons">edit</span>
@@ -248,14 +251,11 @@ export const AdminUsersComponent = ({ status }) => {
                         ))}
                     </tbody>
                 </table>
-                
-
-
-                )}
-            </div>
+            )}
         </div>
-
     </div>
+</div>
+
     )
 
 

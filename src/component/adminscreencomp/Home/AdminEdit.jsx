@@ -63,7 +63,7 @@ export const AdminEditComponent = ({ updateHandler, }) => {
                 }}
                 onFocus={(e) => {
                     e.target.style.boxShadow = '0 0 8px rgba(0, 123, 255, 0.5)';
-                    e.target.style.borderColor = '#007BFF';
+                    e.target.style.borderColor = '#382b7d';
                 }}
                 onBlur={(e) => {
                     e.target.style.boxShadow = 'none';
@@ -90,7 +90,7 @@ export const AdminEditComponent = ({ updateHandler, }) => {
                 }}
                 onFocus={(e) => {
                     e.target.style.boxShadow = '0 0 8px rgba(0, 123, 255, 0.5)';
-                    e.target.style.borderColor = '#007BFF';
+                    e.target.style.borderColor = '#382b7d';
                 }}
                 onBlur={(e) => {
                     e.target.style.boxShadow = 'none';
@@ -103,7 +103,7 @@ export const AdminEditComponent = ({ updateHandler, }) => {
             <button 
                 type="submit"
                 style={{
-                    backgroundColor: '#007BFF',
+                    backgroundColor: '#382b7d',
                     color: '#fff',
                     padding: '12px 30px',
                     borderRadius: '5px',
@@ -112,8 +112,7 @@ export const AdminEditComponent = ({ updateHandler, }) => {
                     cursor: 'pointer',
                     transition: 'background-color 0.3s ease',
                 }}
-                onMouseEnter={(e) => e.target.style.backgroundColor = '#0056b3'}
-                onMouseLeave={(e) => e.target.style.backgroundColor = '#007BFF'}
+                
             >
                 Save
             </button>

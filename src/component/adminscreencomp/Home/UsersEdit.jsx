@@ -188,7 +188,7 @@ export const AdminUserEditComponent = ({ updateHandler, }) => {
                             <button
                                 type="submit"
                                 style={{
-                                    backgroundColor: '#007BFF',
+                                    backgroundColor: '#382b7d',
                                     color: '#fff',
                                     padding: '10px 20px',
                                     borderRadius: '5px',
@@ -197,7 +197,7 @@ export const AdminUserEditComponent = ({ updateHandler, }) => {
                                     transition: 'background-color 0.3s ease',
                                 }}
                                 onMouseEnter={(e) => (e.target.style.backgroundColor = '#0056b3')}
-                                onMouseLeave={(e) => (e.target.style.backgroundColor = '#007BFF')}
+                                onMouseLeave={(e) => (e.target.style.backgroundColor = '#382b7d')}
                             >
                                 Update
                             </button>

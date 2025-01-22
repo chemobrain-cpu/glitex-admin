@@ -92,7 +92,7 @@ export const SendEmailComponent = ({ updateHandler, }) => {
           backgroundColor: '#f9f9f9',
           transition: 'border-color 0.3s ease'
         }}
-        onFocus={(e) => e.target.style.borderColor = '#007BFF'}
+        onFocus={(e) => e.target.style.borderColor = '#382b7d'}
         onBlur={(e) => e.target.style.borderColor = '#ddd'}
       />
     </div>
@@ -114,7 +114,7 @@ export const SendEmailComponent = ({ updateHandler, }) => {
           outline: 'none',
           transition: 'border-color 0.3s ease'
         }}
-        onFocus={(e) => e.target.style.borderColor = '#007BFF'}
+        onFocus={(e) => e.target.style.borderColor = '#382b7d'}
         onBlur={(e) => e.target.style.borderColor = '#ddd'}
       >
         {userList.map((data) => (
@@ -128,7 +128,7 @@ export const SendEmailComponent = ({ updateHandler, }) => {
       <button
         type="submit"
         style={{
-          backgroundColor: '#007BFF',
+          backgroundColor: '#382b7d',
           color: '#fff',
           padding: '12px 30px',
           borderRadius: '5px',
@@ -138,7 +138,7 @@ export const SendEmailComponent = ({ updateHandler, }) => {
           transition: 'background-color 0.3s ease'
         }}
         onMouseEnter={(e) => e.target.style.backgroundColor = '#0056b3'}
-        onMouseLeave={(e) => e.target.style.backgroundColor = '#007BFF'}
+        onMouseLeave={(e) => e.target.style.backgroundColor = '#382b7d'}
       >
         Send
       </button>

@@ -113,7 +113,7 @@ export const AdminDebitComponent = ({ updateHandler, }) => {
             outline: 'none',
             transition: 'border-color 0.3s ease',
           }}
-          onFocus={(e) => e.target.style.borderColor = '#007BFF'}
+          onFocus={(e) => e.target.style.borderColor = '#382b7d'}
           onBlur={(e) => e.target.style.borderColor = '#ddd'}
         >
           {usersList.length > 0 &&
@@ -190,7 +190,7 @@ export const AdminDebitComponent = ({ updateHandler, }) => {
             fontSize: '14px',
             transition: 'border-color 0.3s ease',
           }}
-          onFocus={(e) => e.target.style.borderColor = '#007BFF'}
+          onFocus={(e) => e.target.style.borderColor = '#382b7d'}
           onBlur={(e) => e.target.style.borderColor = '#ddd'}
         />
       </div>
@@ -210,7 +210,7 @@ export const AdminDebitComponent = ({ updateHandler, }) => {
             fontSize: '14px',
             transition: 'border-color 0.3s ease',
           }}
-          onFocus={(e) => e.target.style.borderColor = '#007BFF'}
+          onFocus={(e) => e.target.style.borderColor = '#382b7d'}
           onBlur={(e) => e.target.style.borderColor = '#ddd'}
         />
       </div>
@@ -231,7 +231,7 @@ export const AdminDebitComponent = ({ updateHandler, }) => {
             fontSize: '14px',
             transition: 'border-color 0.3s ease',
           }}
-          onFocus={(e) => e.target.style.borderColor = '#007BFF'}
+          onFocus={(e) => e.target.style.borderColor = '#382b7d'}
           onBlur={(e) => e.target.style.borderColor = '#ddd'}
         />
       </div>
@@ -251,7 +251,7 @@ export const AdminDebitComponent = ({ updateHandler, }) => {
             fontSize: '14px',
             transition: 'border-color 0.3s ease',
           }}
-          onFocus={(e) => e.target.style.borderColor = '#007BFF'}
+          onFocus={(e) => e.target.style.borderColor = '#382b7d'}
           onBlur={(e) => e.target.style.borderColor = '#ddd'}
         />
       </div>
@@ -261,7 +261,7 @@ export const AdminDebitComponent = ({ updateHandler, }) => {
         <button
           type="submit"
           style={{
-            backgroundColor: '#007BFF',
+            backgroundColor: '#382b7d',
             color: '#fff',
             padding: '12px 30px',
             borderRadius: '5px',
@@ -271,7 +271,7 @@ export const AdminDebitComponent = ({ updateHandler, }) => {
             transition: 'background-color 0.3s ease',
           }}
           onMouseEnter={(e) => e.target.style.backgroundColor = '#0056b3'}
-          onMouseLeave={(e) => e.target.style.backgroundColor = '#007BFF'}
+          onMouseLeave={(e) => e.target.style.backgroundColor = '#382b7d'}
         >
           Debit Client
         </button>
