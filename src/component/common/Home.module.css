@@ -688,3 +688,142 @@
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+/* test*/
+/* Main form container */
+.editForm {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Card for each input */
+.inputCards {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.inputCards label {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Input styling */
+.inputCards input, .inputCards select {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Container for buttons */
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Submit button styling */
+.buttonContainer button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Hover effect for button */
+.buttonContainer button:hover {
+}
+
+/* Image Styling */
+.inputCards img {
+    width: 100%;
+    max-width: 200px;
+    margin-top: 10px;
+    border-radius: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .editForm {
+        padding: 10px;
+    }
+
+    .inputCards {
+        margin-bottom: 15px;
+    }
+
+    .inputCards input, .inputCards select {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .buttonContainer button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .inputCards img {
+        width: 100%;
+        max-width: 150px;
+    }
+}
+
+/* Small screens */
+@media (max-width: 480px) {
+    .editForm {
+        padding: 10px;
+    }
+
+    .inputCards {
+        margin-bottom: 12px;
+    }
+
+    .inputCards input, .inputCards select {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    .buttonContainer button {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

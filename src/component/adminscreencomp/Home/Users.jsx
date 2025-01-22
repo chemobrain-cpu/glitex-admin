@@ -104,97 +104,57 @@ export const AdminUsersComponent = ({ status }) => {
 
 
     return (<div className={styles.homeScreen} style={{ backgroundColor: color.background }}>
-
         <div className={styles.timeline} style={{ backgroundColor: color.background }}>
             <div className={styles.filter}>
                 <div className={styles.searchContainer}>
                     <div className={styles.searchBar}>
-                        < input className={styles.input} placeholder='search by email' onChange={searchHandler} />
-                        <span className='material-icons'>
-                            search
-                        </span>
-
+                        <input
+                            className={styles.input}
+                            placeholder="search by email"
+                            onChange={searchHandler}
+                        />
+                        <span className="material-icons">search</span>
                     </div>
                 </div>
             </div>
-            <div className={styles.tableContainer} >
-
-                {userList.length === 0 && <div className={styles.emptyContainer}>
-                    <p>No registered users</p>
-                </div>}
-
-                {userList.length !== 0 && <table>
-                    <tbody>
-                        <tr>
-                            <td>
-                                Email
-                            </td>
-                            <td>
-                                First Name
-                            </td>
-
-                            <td>
-                                Phone Number
-
-                            </td>
-
-
-                            <td>
-                                Country
-
-                            </td>
-
-                            <td>
-                                Delete
-                            </td>
-
-                            <td>
-                                Edit
-                            </td>
-
-                        </tr>
-
-
-
-
-                        {userList.map(data => <tr key={data.__id}  >
-                            <td>
-                                {data.email}
-                            </td>
-                            <td>
-                                {data.firstName}
-
-                            </td>
-
-                            <td>
-                                {data.phone}
-
-                            </td>
-
-                            <td>
-                                {data.nationality}
-
-                            </td>
-
-                            <td onClick={() => deleteHandler(data._id)}>
-                                <span className='material-icons'> delete</span>
-                            </td>
-
-                            <td onClick={() => editHandler(data._id)}>
-                                <span className='material-icons'> edit</span>
-                            </td>
-                        </tr>)}
-
-
-                    </tbody>
-                </table>}
-
+            <div className={styles.tableContainer}>
+                {userList.length === 0 && (
+                    <div className={styles.emptyContainer}>
+                        <p>No registered users</p>
+                    </div>
+                )}
+                {userList.length !== 0 && (
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Email</td>
+                                <td>First Name</td>
+                                <td>Phone Number</td>
+                                <td>Country</td>
+                                <td>Delete</td>
+                                <td>Edit</td>
+                            </tr>
+                            {userList.map((data) => (
+                                <tr key={data.__id}>
+                                    <td>{data.email}</td>
+                                    <td>{data.firstName}</td>
+                                    <td>{data.phone}</td>
+                                    <td>{data.nationality}</td>
+                                    <td onClick={() => deleteHandler(data._id)}>
+                                        <span className="material-icons">delete</span>
+                                    </td>
+                                    <td onClick={() => editHandler(data._id)}>
+                                        <span className="material-icons">edit</span>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                )}
             </div>
         </div>
-
-
-
-    </div>)
+    </div>
+    )
 
 
 

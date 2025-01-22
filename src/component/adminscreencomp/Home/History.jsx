@@ -103,36 +103,28 @@ export const AdminHistoryComponent = ({ status }) => {
             </div>
 
             <div className={styles.tableContainer} >
-
                 <table>
                     <tbody>
                         <tr>
-                          
-                            <td>Date</td>
+                            <td>Transaction ID</td>
                             <td>Amount</td>
                             <td>Status</td>
                             <td>Type Of Transaction</td>
                         </tr>
-
-    
-                        
-                        {historyList.map(data => <tr key={data.__id} onClick={() => { navigateHandler(data._id) }}>
-                            
-                            <td>{data.date}</td>
-                            <td>${data.amount}</td>
-                            <td>{data.status}</td>
-                            <td>{data.transactionType}</td>
-                
-                        </tr>)}
+                        {historyList.map(data => (
+                            <tr key={data.__id} onClick={() => { navigateHandler(data._id) }}>
+                                <td>{data.transaction_number}</td>
+                                <td>${data.amount}</td>
+                                <td>{(data.status === 'true' || data.status === true) ? 'Approved' : 'Pending'}</td>
+                                <td>{data.transactionType}</td>
+                            </tr>
 
 
+                        ))}
                     </tbody>
                 </table>
-
-
-
-
             </div>
+
 
 
 
