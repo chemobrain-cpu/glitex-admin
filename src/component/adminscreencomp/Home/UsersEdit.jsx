@@ -34,213 +34,135 @@ export const AdminUserEditComponent = ({ updateHandler, }) => {
 
 
     return (<>
-        <div className={styles.homeScreen} style={{ backgroundColor: color.background }}>
-            <div className={styles.timeline} style={{ backgroundColor: color.background }}>
-
+        <div
+            className={styles.homeScreen}
+            style={{
+                backgroundColor: color.background,
+                padding: '20px',
+                fontFamily: 'Arial, sans-serif',
+            }}
+        >
+            <div
+                className={styles.timeline}
+                style={{
+                    backgroundColor: color.background,
+                    maxWidth: '900px',
+                    margin: '0 auto',
+                    borderRadius: '8px',
+                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+                    padding: '20px',
+                }}
+            >
                 {usersList && isData && (
-                    <form className={styles.editForm} onSubmit={submitHandler}>
-                        {/* Personal Information */}
-                        <div className={styles.inputCards}>
-                            <label>First Name</label>
-                            <input
-                                onChange={(e) => handleChangeHandler(e, 'firstName')}
-                                value={isData.firstName}
-                                type="text"
-                            />
-                        </div>
+                    <form
+                        className={styles.editForm}
+                        onSubmit={submitHandler}
+                        style={{
+                            display: 'grid',
+                            gap: '15px',
+                        }}
+                    >
+                        {/* Dynamic Form Fields */}
+                        {[
+                            { label: 'First Name', field: 'firstName' },
+                            { label: 'Middle Name', field: 'middleName' },
+                            { label: 'Last Name', field: 'lastName' },
+                            { label: 'Email', field: 'email', readOnly: true },
+                            { label: 'Phone Number', field: 'phone' },
+                            { label: 'Date of Birth', field: 'dob' },
+                            { label: 'Gender', field: 'gender' },
+                            { label: 'Address', field: 'address' },
+                            { label: 'City', field: 'city' },
+                            { label: 'State', field: 'state' },
+                            { label: 'Zip Code', field: 'zipCode' },
+                            { label: 'Country', field: 'nationality' },
+                            { label: 'Next of Kin Name', field: 'nokname' },
+                            { label: 'Next of Kin Address', field: 'nokaddress' },
+                            { label: 'Next of Kin Relationship', field: 'nokrelationship' },
+                            { label: 'Next of Kin Phone', field: 'nokphone' },
+                            { label: 'Next of Kin Email', field: 'nokemail' },
+                            { label: 'Account Number', field: 'acountNumber' },
+                            { label: 'Account Balance', field: 'accountBalance', type: 'number' },
+                            { label: 'Account Type', field: 'acctType' },
+                            { label: 'Currency', field: 'currency' },
+                            { label: 'Pin Number', field: 'pinNumber' },
+                            { label: 'Password', field: 'password', type: 'password' },
+                            { label: 'Password Confirmation', field: 'password_confirmation', type: 'password' },
+                        ].map(({ label, field, type = 'text', readOnly = false }) => (
+                            <div
+                                key={field}
+                                style={{
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                }}
+                            >
+                                <label
+                                    style={{
+                                        marginBottom: '5px',
+                                        fontSize: '14px',
+                                        color: '#555',
+                                    }}
+                                >
+                                    {label}
+                                </label>
+                                <input
+                                    type={type}
+                                    value={isData[field]}
+                                    onChange={(e) => handleChangeHandler(e, field)}
+                                    readOnly={readOnly}
+                                    style={{
+                                        padding: '10px',
+                                        borderRadius: '5px',
+                                        border: '1px solid #ddd',
+                                        width: '100%',
+                                        transition: 'box-shadow 0.3s ease-in-out',
+                                    }}
+                                    onFocus={(e) => (e.target.style.boxShadow = '0 0 5px rgba(0, 0, 255, 0.2)')}
+                                    onBlur={(e) => (e.target.style.boxShadow = 'none')}
+                                />
+                            </div>
+                        ))}
 
-                        <div className={styles.inputCards}>
-                            <label>Middle Name</label>
-                            <input
-                                onChange={(e) => handleChangeHandler(e, 'middleName')}
-                                value={isData.middleName}
-                                type="text"
-                            />
-                        </div>
-
-                        <div className={styles.inputCards}>
-                            <label>Last Name</label>
-                            <input
-                                onChange={(e) => handleChangeHandler(e, 'lastName')}
-                                value={isData.lastName}
-                                type="text"
-                            />
-                        </div>
-
-                        <div className={styles.inputCards}>
-                            <label>Email</label>
-                            <input
-                                onChange={(e) => handleChangeHandler(e, 'email')}
-                                value={isData.email}
-                                type="text"
-                                readOnly
-                            />
-                        </div>
-
-                        <div className={styles.inputCards}>
-                            <label>Phone Number</label>
-                            <input
-                                onChange={(e) => handleChangeHandler(e, 'phone')}
-                                value={isData.phone}
-                                type="text"
-                            />
-                        </div>
-
-                        <div className={styles.inputCards}>
-                            <label>Date of Birth</label>
-                            <input
-                                onChange={(e) => handleChangeHandler(e, 'dob')}
-                                value={isData.dob}
-                                type="text"
-                            />
-                        </div>
-
-                        <div className={styles.inputCards}>
-                            <label>Gender</label>
-                            <input
-                                onChange={(e) => handleChangeHandler(e, 'gender')}
-                                value={isData.gender}
-                                type="text"
-                            />
-                        </div>
-
-                        {/* Address Information */}
-                        <div className={styles.inputCards}>
-                            <label>Address</label>
-                            <input
-                                onChange={(e) => handleChangeHandler(e, 'address')}
-                                value={isData.address}
-                                type="text"
-                            />
-                        </div>
-
-                        <div className={styles.inputCards}>
-                            <label>City</label>
-                            <input
-                                onChange={(e) => handleChangeHandler(e, 'city')}
-                                value={isData.city}
-                                type="text"
-                            />
-                        </div>
-
-                        <div className={styles.inputCards}>
-                            <label>State</label>
-                            <input
-                                onChange={(e) => handleChangeHandler(e, 'state')}
-                                value={isData.state}
-                                type="text"
-                            />
-                        </div>
-
-                        <div className={styles.inputCards}>
-                            <label>Zip Code</label>
-                            <input
-                                onChange={(e) => handleChangeHandler(e, 'zipCode')}
-                                value={isData.zipCode}
-                                type="text"
-                            />
-                        </div>
-
-                        <div className={styles.inputCards}>
-                            <label>Country</label>
-                            <input
-                                onChange={(e) => handleChangeHandler(e, 'nationality')}
-                                value={isData.nationality}
-                                type="text"
-                            />
-                        </div>
-
-                        {/* Next of Kin Information */}
-                        <div className={styles.inputCards}>
-                            <label>Next of Kin Name</label>
-                            <input
-                                onChange={(e) => handleChangeHandler(e, 'nokname')}
-                                value={isData.nokname}
-                                type="text"
-                            />
-                        </div>
-
-                        <div className={styles.inputCards}>
-                            <label>Next of Kin Address</label>
-                            <input
-                                onChange={(e) => handleChangeHandler(e, 'nokaddress')}
-                                value={isData.nokaddress}
-                                type="text"
-                            />
-                        </div>
-
-                        <div className={styles.inputCards}>
-                            <label>Next of Kin Relationship</label>
-                            <input
-                                onChange={(e) => handleChangeHandler(e, 'nokrelationship')}
-                                value={isData.nokrelationship}
-                                type="text"
-                            />
-                        </div>
-
-                        <div className={styles.inputCards}>
-                            <label>Next of Kin Phone</label>
-                            <input
-                                onChange={(e) => handleChangeHandler(e, 'nokphone')}
-                                value={isData.nokphone}
-                                type="text"
-                            />
-                        </div>
-
-                        <div className={styles.inputCards}>
-                            <label>Next of Kin Email</label>
-                            <input
-                                onChange={(e) => handleChangeHandler(e, 'nokemail')}
-                                value={isData.nokemail}
-                                type="text"
-                            />
-                        </div>
-
-                        {/* Account Details */}
-                        <div className={styles.inputCards}>
-                            <label>Account Number</label>
-                            <input
-                                onChange={(e) => handleChangeHandler(e, 'acountNumber')}
-                                value={isData.acountNumber}
-                                type="text"
-                            />
-                        </div>
-
-                        <div className={styles.inputCards}>
-                            <label>Account Balance</label>
-                            <input
-                                onChange={(e) => handleChangeHandler(e, 'accountBalance')}
-                                value={isData.accountBalance}
-                                type="number"
-                            />
-                        </div>
-
-                        <div className={styles.inputCards}>
-                            <label>Account Type</label>
-                            <input
-                                onChange={(e) => handleChangeHandler(e, 'acctType')}
-                                value={isData.acctType}
-                                type="text"
-                            />
-                        </div>
-
-                        <div className={styles.inputCards}>
-                            <label>Currency</label>
-                            <input
-                                onChange={(e) => handleChangeHandler(e, 'currency')}
-                                value={isData.currency}
-                                type="text"
-                            />
-                        </div>
-
-                        <div className={styles.inputCards}>
-                            <label>Pin Number</label>
-                            <input
-                                onChange={(e) => handleChangeHandler(e, 'pinNumber')}
-                                value={isData.pinNumber}
-                                type="text"
-                            />
-                        </div>
+                        {/* Dropdowns */}
+                        {[
+                            { label: 'Tax Verified', field: 'taxVerified' },
+                            { label: 'Otp Verified', field: 'otpVerified' },
+                            { label: 'Account Status', field: 'isAccountStatus' },
+                        ].map(({ label, field }) => (
+                            <div
+                                key={field}
+                                style={{
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                }}
+                            >
+                                <label
+                                    style={{
+                                        marginBottom: '5px',
+                                        fontSize: '14px',
+                                        color: '#555',
+                                    }}
+                                >
+                                    {label}
+                                </label>
+                                <select
+                                    value={isData[field]}
+                                    onChange={(e) => handleChangeHandler(e, field)}
+                                    style={{
+                                        padding: '10px',
+                                        borderRadius: '5px',
+                                        border: '1px solid #ddd',
+                                        width: '100%',
+                                        transition: 'box-shadow 0.3s ease-in-out',
+                                    }}
+                                    onFocus={(e) => (e.target.style.boxShadow = '0 0 5px rgba(0, 0, 255, 0.2)')}
+                                    onBlur={(e) => (e.target.style.boxShadow = 'none')}
+                                >
+                                    <option value={true}>Active</option>
+                                    <option value={false}>Inactive</option>
+                                </select>
+                            </div>
+                        ))}
 
                         {/* Profile and Verification */}
                         <div className={styles.inputCards}>
@@ -256,107 +178,36 @@ export const AdminUserEditComponent = ({ updateHandler, }) => {
                             )}
                         </div>
 
-                        <div className={styles.inputCards}>
-                            <label>Password</label>
-                            <input
-                                onChange={(e) => handleChangeHandler(e, 'password')}
-                                value={isData.password}
-                                type="password"
-                            />
-                        </div>
-
-                        <div className={styles.inputCards}>
-                            <label>Password Confirmation</label>
-                            <input
-                                onChange={(e) => handleChangeHandler(e, 'password_confirmation')}
-                                value={isData.password_confirmation}
-                                type="password"
-                            />
-                        </div>
-
-                        {/* Tax, TAC, NRC, IMF, COT Verified Info */}
-                        <div className={styles.inputCards}>
-                            <label>Tax Verified</label>
-                            <select
-                                onChange={(e) => handleChangeHandler(e, 'taxVerified')}
-                                value={isData.taxVerified}
+                        {/* Buttons */}
+                        <div
+                            style={{
+                                display: 'flex',
+                                justifyContent: 'flex-end',
+                            }}
+                        >
+                            <button
+                                type="submit"
+                                style={{
+                                    backgroundColor: '#007BFF',
+                                    color: '#fff',
+                                    padding: '10px 20px',
+                                    borderRadius: '5px',
+                                    border: 'none',
+                                    cursor: 'pointer',
+                                    transition: 'background-color 0.3s ease',
+                                }}
+                                onMouseEnter={(e) => (e.target.style.backgroundColor = '#0056b3')}
+                                onMouseLeave={(e) => (e.target.style.backgroundColor = '#007BFF')}
                             >
-                                <option value={true}>True</option>
-                                <option value={false}>False</option>
-                            </select>
-                        </div>
-
-                        <div className={styles.inputCards}>
-                            <label>Tax Code</label>
-                            <input
-                                onChange={(e) => handleChangeHandler(e, 'taxCode')}
-                                value={isData.taxCode}
-                                type="number"
-                                readOnly
-                            />
-                        </div>
-
-
-                        <div className={styles.inputCards}>
-                            <label>Otp Code</label>
-                            <input
-                                onChange={(e) => handleChangeHandler(e, 'otpCode')}
-                                value={isData.otpCode}
-                                type="number"
-                                readOnly
-                            />
-                        </div>
-                        <div className={styles.inputCards}>
-                            <label>Otp Verified</label>
-                            <select
-                                onChange={(e) => handleChangeHandler(e, 'otpVerified')}
-                                value={isData.otpVerified}
-                            >
-                                <option value={true}>True</option>
-                                <option value={false}>False</option>
-                            </select>
-                        </div>
-
-
-
-                        <div className={styles.inputCards}>
-                            <label>Account Status</label>
-                            <select
-                                value={isData.isAccountStatus} // This binds the select to the value of isAccountStatus
-                                onChange={(e) => handleChangeHandler(e, 'isAccountStatus')} // Handle change to update the value
-                            >
-                                <option value={true}>Active</option>
-                                <option value={false}>Inactive</option>
-                            </select>
-                        </div>
-
-
-
-                        <div className={styles.buttonContainer}>
-                            <button type="submit">Update</button>
+                                Update
+                            </button>
                         </div>
                     </form>
                 )}
-
-
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         </div>
+
+
 
 
 

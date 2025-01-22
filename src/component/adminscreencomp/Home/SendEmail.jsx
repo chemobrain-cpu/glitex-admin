@@ -67,39 +67,88 @@ export const SendEmailComponent = ({ updateHandler, }) => {
 
    
     return (<>
-        <div className={styles.homeScreen} >
+        <div className={styles.homeScreen} style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
 
-            <div className={styles.timeline} >
-                <form className={styles.editForm} onSubmit={submitHandler}>
-                    <div className={styles.inputCards} >
-                        <label>
-                            Compose Email
-                        </label>
-                        <textarea onChange={(e) => handleChangeHandler(e, 'email')} value={isData.email} type='text' style={{border:'1px solid grey',height:'200px',padding:'10px',borderRadius:'3px'}}></textarea>
-                    </div>
+<div className={styles.timeline} style={{ maxWidth: '900px', margin: '0 auto', borderRadius: '12px', boxShadow: '0 8px 16px rgba(0, 0, 0, 0.1)', padding: '40px' }}>
+  <form className={styles.editForm} onSubmit={submitHandler}>
+    
+    {/* Compose Email */}
+    <div className={styles.inputCards} style={{ marginBottom: '20px' }}>
+      <label style={{ fontSize: '16px', color: '#333', marginBottom: '8px' }}>
+        Compose Email
+      </label>
+      <textarea
+        onChange={(e) => handleChangeHandler(e, 'email')}
+        value={isData.email}
+        type='text'
+        style={{
+          width: '100%',
+          border: '1px solid #ddd',
+          height: '200px',
+          padding: '12px',
+          borderRadius: '8px',
+          fontSize: '14px',
+          outline: 'none',
+          backgroundColor: '#f9f9f9',
+          transition: 'border-color 0.3s ease'
+        }}
+        onFocus={(e) => e.target.style.borderColor = '#007BFF'}
+        onBlur={(e) => e.target.style.borderColor = '#ddd'}
+      />
+    </div>
 
-                    <div className={styles.inputCards} >
-                        <label>
-                        Selent Recipient
-                        </label>
-                        <select onChange={(e) => handleChangeHandler(e, 'reciever')} value={isData.reciever} type='text' style={{width:'100%'}}>
-                            {userList.map(data=><option>{data.email}</option>)}
-                        </select>
-                    </div>
+    {/* Select Recipient */}
+    <div className={styles.inputCards} style={{ marginBottom: '20px' }}>
+      <label style={{ fontSize: '16px', color: '#333', marginBottom: '8px' }}>
+        Select Recipient
+      </label>
+      <select
+        onChange={(e) => handleChangeHandler(e, 'reciever')}
+        value={isData.reciever}
+        style={{
+          width: '100%',
+          padding: '12px',
+          borderRadius: '8px',
+          border: '1px solid #ddd',
+          fontSize: '14px',
+          outline: 'none',
+          transition: 'border-color 0.3s ease'
+        }}
+        onFocus={(e) => e.target.style.borderColor = '#007BFF'}
+        onBlur={(e) => e.target.style.borderColor = '#ddd'}
+      >
+        {userList.map((data) => (
+          <option key={data.email}>{data.email}</option>
+        ))}
+      </select>
+    </div>
 
-                    <div className={styles.buttonContainer} >
-                        <button >send</button>
+    {/* Send Button */}
+    <div className={styles.buttonContainer} style={{ textAlign: 'right' }}>
+      <button
+        type="submit"
+        style={{
+          backgroundColor: '#007BFF',
+          color: '#fff',
+          padding: '12px 30px',
+          borderRadius: '5px',
+          border: 'none',
+          fontSize: '16px',
+          cursor: 'pointer',
+          transition: 'background-color 0.3s ease'
+        }}
+        onMouseEnter={(e) => e.target.style.backgroundColor = '#0056b3'}
+        onMouseLeave={(e) => e.target.style.backgroundColor = '#007BFF'}
+      >
+        Send
+      </button>
+    </div>
+  </form>
+</div>
+</div>
 
-                    </div>
-                </form>
-            </div>
-
-
-
-
-
-
-        </div></>)
+        
+        </>)
 
 
 
