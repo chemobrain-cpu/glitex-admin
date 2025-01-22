@@ -111,7 +111,6 @@ export const AdminUserHistoryComponent = ({ status }) => {
   style={{
     borderCollapse: 'collapse',
     margin: '20px 0',
-    width: '100%',
     backgroundColor: 'rgba(255, 255, 255, 0.9)', // White background with transparency
     borderRadius: '10px',
     boxShadow: '0 12px 24px rgba(0, 0, 0, 0.1)', // Sweet shadow for a modern effect

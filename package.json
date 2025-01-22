@@ -6,6 +6,7 @@
     "aos": "^2.3.4",
     "axios": "^1.6.2",
     "buffer": "^6.0.3",
+    "jspdf": "^2.5.2",
     "millify": "^6.1.0",
     "moment": "^2.29.4",
     "moment-timezone": "^0.5.43",
