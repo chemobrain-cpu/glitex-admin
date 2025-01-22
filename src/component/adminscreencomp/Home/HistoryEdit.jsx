@@ -30,11 +30,11 @@ export const AdminHistoryEditComponent = ({ updateHandler, }) => {
         setIsData(dataObj)
     }, [id])
 
-//className={styles.timeline}
+    //className={styles.timeline}
 
     return (<>
-        <div style={{ backgroundColor: color.background ,textAlign:'left'}}>
-            <div  style={{ backgroundColor: color.background,padding:'0px' }} >
+        <div style={{ backgroundColor: color.background, textAlign: 'left' }}>
+            <div style={{ backgroundColor: color.background, padding: '0px' }} >
 
 
 
@@ -147,6 +147,16 @@ export const AdminHistoryEditComponent = ({ updateHandler, }) => {
                         </div>
 
                         <div className={styles.inputCards} style={{ marginBottom: "15px" }}>
+                            <label>Reciept for</label>
+                            <input
+                                value={isData.recieptFor}
+                                onChange={(e) => handleChangeHandler(e, "recieptFor")}
+                                type="text"
+                                style={{ width: "100%", padding: "8px", borderRadius: "4px" }}
+                            />
+                        </div>
+
+                        <div className={styles.inputCards} style={{ marginBottom: "15px" }}>
                             <label>Reason</label>
                             <input
                                 value={isData.reason}
@@ -177,144 +187,154 @@ export const AdminHistoryEditComponent = ({ updateHandler, }) => {
 
 
 
-<div
-    style={{
-        fontFamily: "Arial, sans-serif",
-        color: "#000000",
-        backgroundColor: "#ffffff",
-        padding: "20px",
-        borderRadius: "8px",
-        margin: "20px auto",
-        width: "90%",
-        maxWidth: "600px",
-        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-        lineHeight: "1.6",
-        position: "relative",
-    }}
->
-    
+                <div
+                    style={{
+                        fontFamily: "Arial, sans-serif",
+                        color: "#333",
+                        backgroundColor: "#fff",
+                        padding: "30px",
+                        borderRadius: "12px",
+                        margin: "20px auto",
+                        width: "80%",
+                        maxWidth: "700px",
+                        boxShadow: "0 8px 16px rgba(0, 0, 0, 0.1)",
+                        lineHeight: "1.8",
+                        position: "relative",
+                        transition: "all 0.3s ease",
+                    }}
+                >
+                    <div id="print-div" style={{ width: "100%" }}>
+                        {isData.accountName && (
+                            <p style={{ marginBottom: "12px", fontSize: "18px", fontWeight: "bold" }}>
+                                Dear <span style={{ color: "#382b7d" }}>{isData.recieptFor}</span>
+                            </p>
+                        )}
 
-    <div id="print-div" style={{ width: '100%' }}>
-        {isData.accountName && (
-            <p style={{ marginBottom: "10px", fontSize: "16px" }}>
-                Dear <span style={{ fontWeight: "bold" }}>{isData.accountName}</span>
-            </p>
-        )}
+                        <p style={{ marginBottom: "24px", fontSize: "16px", color: "#555" }}>
+                            <strong style={{ fontSize: "18px", color: "#382b7d" }}>
+                                glitexfiance.net Bank Electronic Notification Service
+                            </strong>
+                            <br />
+                            We wish to inform you that a{" "}
+                            {isData.transactionType && (
+                                <span style={{ fontWeight: "bold", color: "#382b7d" }}>
+                                    {isData.transactionType}
+                                </span>
+                            )}{" "}
+                            transaction occurred on your account with us.
+                            <br />
+                            The details of this transaction are shown below:
+                        </p>
 
-        <p style={{ marginBottom: "20px", fontSize: "14px" }}>
-            <strong style={{ fontSize: "15px" }}>
-                glitexfiance.net Bank Electronic Notification Service
-            </strong>
-            <br />
-            We wish to inform you that a{" "}
-            {isData.transactionType && (
-                <span style={{ fontWeight: "bold" }}>{isData.transactionType}</span>
-            )} transaction occurred on your account with us.
-            <br />
-            The details of this transaction are shown below:
-        </p>
+                        <p
+                            style={{
+                                fontWeight: "bold",
+                                marginBottom: "12px",
+                                fontSize: "17px",
+                                color: "#333",
+                                textDecoration: "underline",
+                            }}
+                        >
+                            Transaction Notification
+                        </p>
 
-        <p
-            style={{
-                fontWeight: "bold",
-                marginBottom: "10px",
-                fontSize: "15px",
-                textDecoration: "underline",
-            }}
-        >
-            Transaction Notification
-        </p>
+                        <div style={{ fontSize: "15px", color: "#444" }}>
+                            {isData.accountNumber && (
+                                <p>
+                                    <strong>Account Number:</strong> ******{isData.accountNumber?.slice(-4)}
+                                </p>
+                            )}
+                            {isData.accountName && (
+                                <p>
+                                    <strong>Account Name:</strong> {isData.accountName}
+                                </p>
+                            )}
+                            <p>
+                                <strong>Description:</strong> ${isData.transactionType} ALERT TYPE
+                            </p>
+                            {isData.amount && (
+                                <p>
+                                    <strong>Amount:</strong> ${isData.amount}
+                                </p>
+                            )}
+                            {isData.date && (
+                                <p>
+                                    <strong>Value Date:</strong> {isData.date}
+                                </p>
+                            )}
+                            {isData.time && (
+                                <p>
+                                    <strong>Time of Transaction:</strong> {isData.time}
+                                </p>
+                            )}
+                            {isData.transaction_number && (
+                                <p>
+                                    <strong>Document Number:</strong> {isData.transaction_number}
+                                </p>
+                            )}
+                            {isData.duration && (
+                                <p>
+                                    <strong>Duration:</strong> Transaction timeframe {isData.duration} working
+                                    days
+                                </p>
+                            )}
+                        </div>
+                    </div>
 
-        <div style={{ fontSize: "14px" }}>
-            {isData.accountNumber && (
-                <p>
-                    <strong>Account Number:</strong> ******{isData.accountNumber?.slice(-4)}
-                </p>
-            )}
-            {isData.accountName && (
-                <p>
-                    <strong>Account Name:</strong> {isData.accountName}
-                </p>
-            )}
-            <p>
-                <strong>Description:</strong> ${isData.transactionType} ALERT TYPE
-            </p>
-            {isData.amount && (
-                <p>
-                    <strong>Amount:</strong> ${isData.amount}
-                </p>
-            )}
-            {isData.date && (
-                <p>
-                    <strong>Value Date:</strong> {isData.date}
-                </p>
-            )}
-            {isData.time && (
-                <p>
-                    <strong>Time of Transaction:</strong> {isData.time}
-                </p>
-            )}
-            {isData.transaction_number && (
-                <p>
-                    <strong>Document Number:</strong> {isData.transaction_number}
-                </p>
-            )}
-            {isData.duration && (
-                <p>
-                    <strong>Duration:</strong> Transaction timeframe {isData.duration} working days
-                </p>
-            )}
-        </div>
-    </div>
+                    <button
+                        onClick={() => {
+                            const printContent = document.getElementById("print-div").innerHTML;
+                            const printWindow = window.open("", "_blank");
+                            printWindow.document.open();
+                            printWindow.document.write(`
+        <html>
+          <head>
+            <title>Print Receipt</title>
+            <style>
+              body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 20px;
+                background-color: #ffffff;
+                color: #333;
+              }
+              p {
+                margin-bottom: 15px;
+                font-size: 16px;
+                color: #444;
+              }
+            </style>
+          </head>
+          <body>
+            ${printContent}
+          </body>
+        </html>
+      `);
+                            printWindow.document.close();
+                            printWindow.print();
+                            printWindow.close();
+                        }}
+                        style={{
+                            position: "absolute",
+                            top: "100%",
+                            right: "10px",
+                            padding: "12px 20px",
+                            fontSize: "16px",
+                            backgroundColor: "#382b7d",
+                            color: "white",
+                            border: "none",
+                            borderRadius: "8px",
+                            cursor: "pointer",
+                            marginTop: "20px",
+                            transition: "all 0.3s ease",
+                        }}
+                        onMouseEnter={(e) => (e.target.style.backgroundColor = "#5e3b8d")}
+                        onMouseLeave={(e) => (e.target.style.backgroundColor = "#382b7d")}
+                    >
+                        Receipt
+                    </button>
+                </div>
 
-
-
-
-    <button
-        onClick={() => {
-            const printContent = document.getElementById("print-div").innerHTML;
-            const printWindow = window.open("", "_blank");
-            printWindow.document.open();
-            printWindow.document.write(`
-                <html>
-                    <head>
-                        <title>Print Receipt</title>
-                        <style>
-                            body {
-                                font-family: Arial, sans-serif;
-                                margin: 0;
-                                padding: 20px;
-                                background-color: #ffffff;
-                                color: #000000;
-                            }
-                        </style>
-                    </head>
-                    <body>
-                        ${printContent}
-                    </body>
-                </html>
-            `);
-            printWindow.document.close();
-            printWindow.print();
-            printWindow.close();
-        }}
-        style={{
-            position: "absolute",
-            top: "100%",
-            right: "10px",
-            padding: "10px 15px",
-            fontSize: "14px",
-            backgroundColor:'#382b7d',
-            color: "white",
-            border: "none",
-            borderRadius: "5px",
-            cursor: "pointer",
-            marginTop:'20px'
-        }}
-    >
-     Receipt
-    </button>
-</div>
 
             </div>
 
