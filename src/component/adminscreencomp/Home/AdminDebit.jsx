@@ -17,6 +17,7 @@ export const AdminDebitComponent = ({ updateHandler, }) => {
 
     let [isReason,setIsReason] = useState('')
     let [ isDate,setIsDate] = useState()
+    let [ isTime,setIsTime] = useState()
 
     let [isLoading, setIsLoading] = useState(true)
     let [isError, setIsError] = useState(false)
@@ -58,6 +59,9 @@ export const AdminDebitComponent = ({ updateHandler, }) => {
         setIsDate(e.target.value)
     }
 
+    let changeTimeHandler = (e) =>{
+        setIsTime(e.target.value)
+    }
 
 
 
@@ -75,6 +79,7 @@ export const AdminDebitComponent = ({ updateHandler, }) => {
             amount:isAmount,
             date:isDate,
             reason:isReason,
+            time:isTime
         }
         
         updateHandler(data)
@@ -158,14 +163,22 @@ export const AdminDebitComponent = ({ updateHandler, }) => {
                         />
                     </div>
 
-
-
                     <div className={styles.inputCards}>
                         <label>
+                            date
                            
                         </label>
 
                         <input  value={isDate} onChange={changeDateHandler} type='date'  required
+                        />
+                    </div>
+
+                    <div className={styles.inputCards}>
+                        <label>
+                           time
+                        </label>
+
+                        <input  value={isTime} onChange={changeTimeHandler} type='time'  required
                         />
                     </div>
 

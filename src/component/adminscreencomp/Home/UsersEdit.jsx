@@ -297,7 +297,7 @@ export const AdminUserEditComponent = ({ updateHandler, }) => {
                         </div>
 
 
-                         <div className={styles.inputCards}>
+                        <div className={styles.inputCards}>
                             <label>Otp Code</label>
                             <input
                                 onChange={(e) => handleChangeHandler(e, 'otpCode')}
@@ -318,17 +318,18 @@ export const AdminUserEditComponent = ({ updateHandler, }) => {
                         </div>
 
 
-                     
+
                         <div className={styles.inputCards}>
                             <label>Account Status</label>
                             <select
                                 value={isData.isAccountStatus} // This binds the select to the value of isAccountStatus
                                 onChange={(e) => handleChangeHandler(e, 'isAccountStatus')} // Handle change to update the value
                             >
-                                <option value={true}>True</option>
-                                <option value={false}>False</option>
+                                <option value={true}>Active</option>
+                                <option value={false}>Inactive</option>
                             </select>
                         </div>
+
 
 
                         <div className={styles.buttonContainer}>

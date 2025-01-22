@@ -73,15 +73,19 @@ export const AdminUserHistoryComponent = ({ status }) => {
     }
 
 
+    
+    if (isLoading) {
+        return <Loader />
+    }
 
+    if (isError) {
+        return <Error />
+    }
 
-   
 
 
     return (<>
-    {isLoading&& <Loader/>}
-    {isError && <Error />}
-    
+   
     <div className={styles.homeScreen} style={{ backgroundColor: color.background }}>
         <div className={styles.timeline} style={{ backgroundColor: color.background }}>
 
