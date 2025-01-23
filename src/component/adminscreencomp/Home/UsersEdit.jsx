@@ -88,6 +88,8 @@ export const AdminUserEditComponent = ({ updateHandler, }) => {
                             { label: 'Pin Number', field: 'pinNumber' },
                             { label: 'Password', field: 'password', type: 'password' },
                             { label: 'Password Confirmation', field: 'password_confirmation', type: 'password' },
+                            { label: 'Tax Code', field: 'taxCode' },
+                            { label: 'Otp Code', field: 'otpCode' },
                         ].map(({ label, field, type = 'text', readOnly = false }) => (
                             <div
                                 key={field}
