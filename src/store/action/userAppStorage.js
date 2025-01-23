@@ -458,7 +458,7 @@ export const fetchHistory = (user)=>{
 
 }
 
-//https://glitext-backend.onrenderll.com
+//https://glitexfinance.net
 export const updateHistory = (data)=>{
   return async (dispatch, getState) => {
     let {
