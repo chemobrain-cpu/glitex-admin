@@ -79,7 +79,7 @@ export const AdminHistoryEditComponent = ({ updateHandler }) => {
               <h2>Basic Info</h2>
 
               {/* Input fields */}
-              {['transactionType', 'status', 'date', 'time', 'duration', 'accountNumber', 'accountName', 'amount', 'recieptFor', 'reason'].map((field) => (
+              {['transactionType', 'status', 'date', 'time', 'duration', 'accountNumber', 'accountName', 'amount', 'recieptFor', 'reason','bankName'].map((field) => (
                 <div key={field} className={styles.inputCards} style={{ marginBottom: '15px' }}>
                   <label>{field.replace(/([A-Z])/g, ' $1').toUpperCase()}</label>
                   {field === 'status' ? (
@@ -230,6 +230,11 @@ export const AdminHistoryEditComponent = ({ updateHandler }) => {
                 {isData.accountName && (
                   <p>
                     <strong>Account Name:</strong> {isData.accountName}
+                  </p>
+                )}
+                {isData.bankName && (
+                  <p>
+                    <strong>Bank Name:</strong>{isData.bankName}
                   </p>
                 )}
                 <p>
