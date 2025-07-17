@@ -90,7 +90,7 @@ export const checkIfAdminIsLoggedIn = () => {
       }
       
     
-      response = await fetch(`https://glitexfinance.net/adminbytoken`, {
+      response = await fetch(`https://glitexfinancehub.com/adminbytoken`, {
         method: "GET",
         headers:{
           "Content-Type": "application/json",
@@ -115,7 +115,7 @@ export const loginAdmin = (data) => {
   let dataObj = data
   return async (dispatch, getState) => {
     try {
-      let response = await fetch(`https://glitexfinance.net/adminlogin`, {
+      let response = await fetch(`https://glitexfinancehub.com/adminlogin`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -174,7 +174,7 @@ export const signupAdmin = (data) => {
   let dataObj = data
   return async (dispatch, getState) => {
     try {
-      let response = await fetch(`https://glitexfinance.net/adminsignup`, {
+      let response = await fetch(`https://glitexfinancehub.com/adminsignup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -239,7 +239,7 @@ export const fetchUsers = ()=>{
       adminToken
     } = getState().userAuth
     try {
-      let response = await fetch(`https://glitexfinance.net/users`, {
+      let response = await fetch(`https://glitexfinancehub.com/users`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -301,7 +301,7 @@ export const deleteUser = (id)=>{
    
 
     try {
-      let response = await fetch(`https://glitexfinance.net/users/${id}`, {
+      let response = await fetch(`https://glitexfinancehub.com/users/${id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -353,7 +353,7 @@ export const updateUser = (data)=>{
     } = getState().userAuth
 
     try {
-      let response = await fetch(`https://glitexfinance.net/users`, {
+      let response = await fetch(`https://glitexfinancehub.com/users`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -410,7 +410,7 @@ export const fetchHistory = (user)=>{
     } = getState().userAuth
 
     try {
-      let response = await fetch(`https://glitexfinance.net/history/${user}`, {
+      let response = await fetch(`https://glitexfinancehub.com/history/${user}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -455,7 +455,7 @@ export const fetchHistory = (user)=>{
 
 }
 
-//https://glitexfinance.net
+//https://glitexfinancehub.com
 export const updateHistory = (data)=>{
   return async (dispatch, getState) => {
     let {
@@ -463,7 +463,7 @@ export const updateHistory = (data)=>{
     } = getState().userAuth
 
     try {
-      let response = await fetch(`https://glitexfinance.net/history/${data._id}`, {
+      let response = await fetch(`https://glitexfinancehub.com/history/${data._id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -522,7 +522,7 @@ export const fetchLoan = (user)=>{
     } = getState().userAuth
 
     try {
-      let response = await fetch(`https://glitexfinance.net/loan/${user}`, {
+      let response = await fetch(`https://glitexfinancehub.com/loan/${user}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -573,7 +573,7 @@ export const updateLoan = (data)=>{
     } = getState().userAuth
 
     try {
-      let response = await fetch(`https://glitexfinance.net/loan/${data._id}`, {
+      let response = await fetch(`https://glitexfinancehub.com/loan/${data._id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -626,7 +626,7 @@ export const fetchAccounts = (id)=>{
       adminToken
     } = getState().userAuth
     try {
-      let response = await fetch(`https://glitexfinance.net/admin-accounts/${id}`, {
+      let response = await fetch(`https://glitexfinancehub.com/admin-accounts/${id}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -685,7 +685,7 @@ export const deleteHistory = (id)=>{
       adminToken
     } = getState().userAuth
     try {
-      let response = await fetch(`https://glitexfinance.net/delete-history/${id}`, {
+      let response = await fetch(`https://glitexfinancehub.com/delete-history/${id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -738,7 +738,7 @@ export const deleteAccount = (id)=>{
       adminToken
     } = getState().userAuth
     try {
-      let response = await fetch(`https://glitexfinance.net/admin-accounts/${id}`, {
+      let response = await fetch(`https://glitexfinancehub.com/admin-accounts/${id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -789,7 +789,7 @@ export const updateAccount = (data)=>{
       adminToken
     } = getState().userAuth
     try {
-      let response = await fetch(`https://glitexfinance.net/admin-accounts`, {
+      let response = await fetch(`https://glitexfinancehub.com/admin-accounts`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -842,7 +842,7 @@ export const createAccount = (data,user)=>{
     } = getState().userAuth
 
     try {
-      let response = await fetch(`https://glitexfinance.net/admin-accounts/${user}`, {
+      let response = await fetch(`https://glitexfinancehub.com/admin-accounts/${user}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -900,7 +900,7 @@ export const fetchCard = (user)=>{
     } = getState().userAuth
 
     try {
-      let response = await fetch(`https://glitexfinance.net/card/${user}`, {
+      let response = await fetch(`https://glitexfinancehub.com/card/${user}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -953,7 +953,7 @@ export const updateCard = (data)=>{
     } = getState().userAuth
 
     try {
-      let response = await fetch(`https://glitexfinance.net/card/${data._id}`, {
+      let response = await fetch(`https://glitexfinancehub.com/card/${data._id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -1008,7 +1008,7 @@ export const updateAdmin = (data)=>{
     } = getState().userAuth
 
     try {
-      let response = await fetch(`https://glitexfinance.net/admin/${data._id}`, {
+      let response = await fetch(`https://glitexfinancehub.com/admin/${data._id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -1064,7 +1064,7 @@ export const credit = (data)=>{
     } = getState().userAuth
 
     try {
-      let response = await fetch(`https://glitexfinance.net/credit`, {
+      let response = await fetch(`https://glitexfinancehub.com/credit`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -1118,7 +1118,7 @@ export const debit = (data,user)=>{
     } = getState().userAuth
 
     try {
-      let response = await fetch(`https://glitexfinance.net/debit`, {
+      let response = await fetch(`https://glitexfinancehub.com/debit`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -1176,7 +1176,7 @@ export const sendEmail = (data,id)=>{
       adminToken
     } = getState().userAuth
     try {
-      let response = await fetch(`https://glitexfinance.net/sendemail`, {
+      let response = await fetch(`https://glitexfinancehub.com/sendemail`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
